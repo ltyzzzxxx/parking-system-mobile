@@ -1,0 +1,40 @@
+
+.add-car {
+	height: 100%;
+	background-color: #F0FFF0;
+}
+.solid-line {
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	right: 10%;
+	width: 80%;
+	height: 10%;
+	border-radius: 5px;
+	border: 1px dashed #7FFFD4;
+}
+.no-car {
+	position: absolute;
+	top: 12%;
+	height: 88%;
+	width: 100%;
+}
+.plates {
+	position: absolute;
+	top: 15%;
+	left: 10%;
+	right: 10%;
+	height: 70%;
+	width: 80%;
+	border-radius: 5px;
+}
+.plate {
+	width: 300px;
+	height: 80px;
+	border-radius: 5px;
+	background-color: #fefefe;
+}
+page {
+	background-color: #f8f9fb;
+}
+

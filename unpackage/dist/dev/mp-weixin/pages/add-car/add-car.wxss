@@ -1,0 +1,77 @@
+.hover-c {
+    opacity: .5
+}
+.body,
+page {
+    height: 100%
+}
+.body {
+    overflow: auto
+}
+.carinput {
+    margin-top: 74rpx;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40rpx;
+    padding-right: 40rpx
+}
+.carinput-title {
+    font-size: 30rpx;
+    color: #333333;
+    line-height: 1;
+    margin-bottom: 90rpx
+}
+.carinput-input {
+    display: flex;
+    justify-content: center
+}
+.carinput-input-i {
+    width: 50rpx;
+    border-bottom-width: 2rpx !important;
+    border-bottom-style: solid;
+    border-bottom-color: #BCBCBC;
+    font-size: 36rpx;
+    color: #333333;
+    line-height: 1;
+    margin-right: 12rpx;
+    padding-bottom: 7rpx;
+    text-align: center
+}
+.carinput-input-i:nth-last-child(1) {
+    margin-right: 0
+}
+.carinput-input .input-active {
+    border-bottom-width: 2rpx !important;
+    border-bottom-style: solid;
+    border-bottom-color: #23CCAB;
+    color: #23CCAB
+}
+.carinput-power {
+    height: 90rpx;
+    display: flex;
+    justify-content: flex-end
+}
+.carinput-power .checkbox-g {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.carinput-power .checkbox {
+    margin-right: 92rpx;
+    font-size: 28rpx;
+    color: #999999;
+    line-height: 1
+}
+.carinput-power .checkbox checkbox {
+    -webkit-transform: scale(.6) translateY(-2px);
+            transform: scale(.6) translateY(-2px);
+    margin-right: 0
+}
+.card-btn {
+    margin-top: 40rpx
+}
+.card-btn .btn {
+    width: 324rpx;
+    height: 80rpx
+}
+

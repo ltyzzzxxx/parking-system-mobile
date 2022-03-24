@@ -1,0 +1,123 @@
+{
+	"pages": [{
+		"path": "pages/tabbar/parking/parking",
+		"style": {
+			"navigationBarTitleText": "停车",
+			"enablePullDownRefresh": false,
+			"navigationBarTextStyle":"black",
+			"app-plus":{
+				"titleNView": {
+					"titleText":"停车",
+					"titleAlign": "left"
+				}
+			}
+		}
+	}, {
+		"path": "pages/tabbar/home/home",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false,
+			"navigationBarBackgroundColor": "#5CCC84",
+			"navigationBarTextStyle": "white",
+			"app-plus": {
+				"titleNView": {
+					"titleText": "",
+					"titleAlign": "left",
+					"buttons": [{
+						"type": "menu"
+					}]
+				}
+			}
+		}
+	}    ,{
+            "path" : "pages/my-car/my-car",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的爱车",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/add-car/add-car",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "绑定车牌",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/search-parking/search-parking",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索车场",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/search-result/search-result",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索结果",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/parking-detail/parking-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#5CCC84",
+                "navigationBarTextStyle": "white",
+                "app-plus": {
+                	"titleNView": {
+                		"titleText": "",
+                		"titleAlign": "left",
+                		"buttons": [{
+                			"type": "menu"
+                		}]
+                	}
+                }
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "鸿讯停车",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
+		"app-plus": {
+			"background": "#FFFFFF"
+		}
+	},
+	"tabBar": {
+		"color": "#BBBAC7",
+		"selectedColor": "#2C2C2C",
+		"borderStyle": "black",
+		"list": [{
+			"iconPath": "static/tabbar/parking.png",
+			"pagePath": "pages/tabbar/parking/parking",
+			"selectedIconPath": "static/tabbar/parking_selected.png",
+			"text": "停车"
+		}, {
+			"iconPath": "static/tabbar/home.png",
+			"pagePath": "pages/tabbar/home/home",
+			"selectedIconPath": "static/tabbar/home_selected.png",
+			"text": "我的"
+		}]
+	}
+}

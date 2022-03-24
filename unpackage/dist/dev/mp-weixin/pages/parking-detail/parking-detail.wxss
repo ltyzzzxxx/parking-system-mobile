@@ -1,0 +1,27 @@
+
+.detail-bg {
+	background-image: linear-gradient(#5CCC84 0%, #3CB371 100%);
+	/* background-color: #5ccc84; */
+	height: 350rpx;
+	width: 750rpx;
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+.detail-container {
+	width: 100%;
+	position: absolute;
+	top: 350rpx;
+	bottom: 0;
+	left: 0;
+	background-color: #f8f8fa;
+}
+.detail-parking {
+	background-color: #fefefe;
+	margin: -25px auto 0 auto;
+	width: 80%;
+	height: 370px;
+	border-radius: 10px;
+	box-shadow: 10px 20px 20px -20px #eeeff5;
+}
+

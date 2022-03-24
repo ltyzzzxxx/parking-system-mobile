@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/tabbar/parking/parking",
+    "pages/tabbar/home/home",
+    "pages/my-car/my-car",
+    "pages/add-car/add-car",
+    "pages/search-parking/search-parking",
+    "pages/search-result/search-result",
+    "pages/login/login",
+    "pages/parking-detail/parking-detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "鸿讯停车",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#BBBAC7",
+    "selectedColor": "#2C2C2C",
+    "borderStyle": "black",
+    "list": [
+      {
+        "iconPath": "static/tabbar/parking.png",
+        "pagePath": "pages/tabbar/parking/parking",
+        "selectedIconPath": "static/tabbar/parking_selected.png",
+        "text": "停车"
+      },
+      {
+        "iconPath": "static/tabbar/home.png",
+        "pagePath": "pages/tabbar/home/home",
+        "selectedIconPath": "static/tabbar/home_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
