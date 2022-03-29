@@ -11,6 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-tuichu:before {
+  content: "\e892";
+}
+
 .icon-shezhi:before {
   content: "\e74c";
 }

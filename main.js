@@ -25,11 +25,11 @@ Vue.prototype.authJump = function(url) {
 			url: '/pages/login/login'
 		})
 	}
-	if(!store.state.user.phone) {
-		return uni.navigateTo({
-			url: '/pages/bind-phone/bind-phone'
-		})
-	}
+	// if(!store.state.user.phone) {
+	// 	return uni.navigateTo({
+	// 		url: '/pages/bind-phone/bind-phone'
+	// 	})
+	// }
 	uni.navigateTo({
 		url,
 	})

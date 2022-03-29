@@ -30,8 +30,16 @@
 	</view>
 </template>
 <script>
+import {
+	mapState
+} from 'vuex'
 import tkiFloatKeyboard from "@/components/tki-float-keyboard/tki-float-keyboard.vue";
 export default {
+	computed: {
+		...mapState({
+			user: state => state.user
+		})
+	},
 	data() {
 		return {
 			carIndex: -1,
@@ -183,7 +191,22 @@ export default {
 			let ck = that.checkCar();
 			if (ck.i == -1 && !ck.isempty) {
 				console.log('可以绑定车牌了')
+				let plate = ''
+				this.carInput.forEach(c => {
+					plate += c.val
+				})
+				console.log(plate)
+				this.$api.addPlate({
+					carParkUserId: this.user.id, 
+					plate: plate
+				}).then(res => {
+					this.$toast('绑定成功')
+					uni.navigateBack({
+						delta:1
+					})
+				})
 			} else {
+				this.$toast("请继续输入待绑定车牌号")
 				// 显示键盘输入
 				that.keyShow();
 				that.carIndex = ck.i;
@@ -194,7 +217,6 @@ export default {
 	components: {
 		tkiFloatKeyboard
 	},
-	computed: {},
 	watch: {},
 	onPageScroll: function () {
 		let that = this;

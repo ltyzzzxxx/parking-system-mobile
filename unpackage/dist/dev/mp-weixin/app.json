@@ -7,7 +7,9 @@
     "pages/search-parking/search-parking",
     "pages/search-result/search-result",
     "pages/login/login",
-    "pages/parking-detail/parking-detail"
+    "pages/parking-detail/parking-detail",
+    "pages/bind-phone/bind-phone",
+    "pages/user-info/user-info"
   ],
   "subPackages": [],
   "window": {
@@ -35,5 +37,6 @@
       }
     ]
   },
+  "permission": {},
   "usingComponents": {}
 }

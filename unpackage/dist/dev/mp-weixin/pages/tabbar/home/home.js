@@ -96,13 +96,13 @@ var components
 try {
   components = {
     iconsCard: function() {
-      return __webpack_require__.e(/*! import() | components/icons-card/icons-card */ "components/icons-card/icons-card").then(__webpack_require__.bind(null, /*! @/components/icons-card/icons-card.vue */ 103))
+      return __webpack_require__.e(/*! import() | components/icons-card/icons-card */ "components/icons-card/icons-card").then(__webpack_require__.bind(null, /*! @/components/icons-card/icons-card.vue */ 275))
     },
     uniList: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 89))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 261))
     },
     uniListItem: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 96))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 268))
     }
   }
 } catch (e) {
@@ -211,7 +211,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
 var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
 {
   computed: _objectSpread({},
   (0, _vuex.mapState)({
@@ -248,6 +258,20 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
         },
         fail: function fail(err) {
           console.log("调用失败");
+        } });
+
+    },
+    logout: function logout() {var _this = this;
+      uni.showModal({
+        content: '是否要退出登录？',
+        success: function success(res) {
+          if (res.cancel) {
+            return;
+          }
+          // this.$api.logout()
+          _this.$store.dispatch('logout').then(function (res) {
+            _this.$toast('退出登录成功');
+          });
         } });
 
     } } };exports.default = _default;

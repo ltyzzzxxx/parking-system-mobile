@@ -94,6 +94,26 @@
             }
             
         }
+        ,{
+            "path" : "pages/bind-phone/bind-phone",
+            "style": {
+            	"navigationBarTitleText": "",
+            	"enablePullDownRefresh": false,
+            	"app-plus": {
+            		"titleNView": false
+            	}
+            }
+            
+        }
+        ,{
+            "path" : "pages/user-info/user-info",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "编辑资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

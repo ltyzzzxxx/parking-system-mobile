@@ -7,9 +7,9 @@
 			</view>
 		</view>
 		<view v-if="plateList.length > 0" class="plates flex-column">
-			<view v-for="i in 8" class="plate flex justify-between align-center mt-5">
-				<text style="color: #000000; font-size: 19px; margin-left: 25px;">鄂ABY636</text>
-				<uni-icons type="trash" size="20" style="color: #989899; margin-right: 25px;"></uni-icons>
+			<view v-for="(item,index) in plateList" :key="index" class="plate flex justify-between align-center mt-5">
+				<text style="color: #000000; font-size: 19px; margin-left: 25px;">{{item.plate}}</text>
+				<uni-icons type="trash" size="20" style="color: #989899; margin-right: 25px;" @click="deletePlate(item.id)"></uni-icons>
 			</view>
 		</view>
 		<view v-else class="no-car flex align-center justify-center flex-column">
@@ -21,15 +21,54 @@
 </template>
 
 <script>
+	import {
+		mapState
+	} from 'vuex'
 	export default {
+		computed: {
+			...mapState({
+				user: state => state.user
+			})
+		},
 		data() {
 			return {
-				plateList: ['ss']
+				plateList: []
 			}
 		},
 		methods: {
-			
+			getPlates(id) {
+				this.$api.getPlates(id).then(res => {
+					console.log(res)
+					this.plateList = res.plates
+				})
+			},
+			deletePlate(id) {
+				uni.showModal({
+					content: '是否删除该车牌号？',
+					success: res => {
+						if(res.confirm) {
+							uni.showLoading({
+								title:"删除中",
+								mask:false
+							});
+							this.$api.deletePlate(id).then(res => {
+								this.$toast('删除成功')
+								this.getPlates({carParkUserId: this.user.id})
+							}).finally(() => {
+								uni.hideLoading()
+							})
+						}
+					},
+				});
+			}
+		},
+		created() {
+			this.getPlates({carParkUserId: this.user.id})
+		},
+		onShow() {
+			this.getPlates({carParkUserId: this.user.id})
 		}
+		
 	}
 </script>
 

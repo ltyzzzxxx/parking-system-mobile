@@ -1,8 +1,8 @@
 import store from '../store/index.js'
 export default {
 	config: {
-		baseURL: "http://ceshi8.dishaxy.com",
-		appid: "bd9d01ecc75dbbaaefce",
+		baseURL: "http://localhost:1001",
+		// baseURL: "http://localhost:8989",
 		// 请求拦截器
 		beforeRequest(options = {}) {
 			return new Promise((resolve, reject) => {
@@ -10,7 +10,6 @@ export default {
 				options.url = this.baseURL + options.url
 				options.method = options.method || 'GET'
 				options.header = {
-					appid: this.appid,
 					token: store.state.token
 				}
 				// 权限相关验证
@@ -21,13 +20,13 @@ export default {
 		handleResponse([error, res]) {
 			return new Promise((resolve, reject) => {
 				// 错误提示处理
-				if (res.statusCode != 200 || res.data.msg == 'fail') {
-					let msg = res.data.data || '请求失败'
+				if (res.statusCode != 200 || res.data.code == 400) {
+					let msg = res.data.message || '请求失败'
 					uni.showToast({
 						title: msg,
 						icon: 'none'
 					});
-					if(res.data.data == 'Token 令牌不合法，请重新登录') {
+					if(res.data.message == '请先登录' || res.data.message == 'token已过期') {
 						store.dispatch('logout')
 						setTimeout(() => {
 							uni.navigateTo({

@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniIcons: function() {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 81))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 253))
     }
   }
 } catch (e) {
@@ -153,36 +153,77 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
 {
+  computed: _objectSpread({},
+  (0, _vuex.mapState)({
+    user: function user(state) {return state.user;} })),
+
+
   data: function data() {
     return {
-      plateList: ['ss'] };
+      plateList: [] };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    getPlates: function getPlates(id) {var _this = this;
+      this.$api.getPlates(id).then(function (res) {
+        console.log(res);
+        _this.plateList = res.plates;
+      });
+    },
+    deletePlate: function deletePlate(id) {var _this2 = this;
+      uni.showModal({
+        content: '是否删除该车牌号？',
+        success: function success(res) {
+          if (res.confirm) {
+            uni.showLoading({
+              title: "删除中",
+              mask: false });
+
+            _this2.$api.deletePlate(id).then(function (res) {
+              _this2.$toast('删除成功');
+              _this2.getPlates({ carParkUserId: _this2.user.id });
+            }).finally(function () {
+              uni.hideLoading();
+            });
+          }
+        } });
+
+    } },
+
+  created: function created() {
+    this.getPlates({ carParkUserId: this.user.id });
+  },
+  onShow: function onShow() {
+    this.getPlates({ carParkUserId: this.user.id });
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

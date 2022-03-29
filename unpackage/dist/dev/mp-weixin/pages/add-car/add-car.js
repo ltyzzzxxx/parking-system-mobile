@@ -96,7 +96,7 @@ var components
 try {
   components = {
     tkiFloatKeyboard: function() {
-      return __webpack_require__.e(/*! import() | components/tki-float-keyboard/tki-float-keyboard */ "components/tki-float-keyboard/tki-float-keyboard").then(__webpack_require__.bind(null, /*! @/components/tki-float-keyboard/tki-float-keyboard.vue */ 108))
+      return __webpack_require__.e(/*! import() | components/tki-float-keyboard/tki-float-keyboard */ "components/tki-float-keyboard/tki-float-keyboard").then(__webpack_require__.bind(null, /*! @/components/tki-float-keyboard/tki-float-keyboard.vue */ 280))
     }
   }
 } catch (e) {
@@ -153,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var tkiFloatKeyboard = function tkiFloatKeyboard() {__webpack_require__.e(/*! require.ensure | components/tki-float-keyboard/tki-float-keyboard */ "components/tki-float-keyboard/tki-float-keyboard").then((function () {return resolve(__webpack_require__(/*! @/components/tki-float-keyboard/tki-float-keyboard.vue */ 108));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 46));
 
 
 
@@ -183,10 +183,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+var _vuex = __webpack_require__(/*! vuex */ 15);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var tkiFloatKeyboard = function tkiFloatKeyboard() {__webpack_require__.e(/*! require.ensure | components/tki-float-keyboard/tki-float-keyboard */ "components/tki-float-keyboard/tki-float-keyboard").then((function () {return resolve(__webpack_require__(/*! @/components/tki-float-keyboard/tki-float-keyboard.vue */ 280));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
 {
+  computed: _objectSpread({},
+  (0, _vuex.mapState)({
+    user: function user(state) {return state.user;} })),
+
+
   data: function data() {
     return {
       carIndex: -1,
@@ -333,12 +341,27 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       }
       return rt;
     },
-    toBind: function toBind() {
+    toBind: function toBind() {var _this = this;
       var that = this;
       var ck = that.checkCar();
       if (ck.i == -1 && !ck.isempty) {
         console.log('可以绑定车牌了');
+        var plate = '';
+        this.carInput.forEach(function (c) {
+          plate += c.val;
+        });
+        console.log(plate);
+        this.$api.addPlate({
+          carParkUserId: this.user.id,
+          plate: plate }).
+        then(function (res) {
+          _this.$toast('绑定成功');
+          uni.navigateBack({
+            delta: 1 });
+
+        });
       } else {
+        this.$toast("请继续输入待绑定车牌号");
         // 显示键盘输入
         that.keyShow();
         that.carIndex = ck.i;
@@ -349,7 +372,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   components: {
     tkiFloatKeyboard: tkiFloatKeyboard },
 
-  computed: {},
   watch: {},
   onPageScroll: function onPageScroll() {
     var that = this;
@@ -371,6 +393,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   },
   onLoad: function () {var _onLoad = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var that;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
               that = this;case 1:case "end":return _context.stop();}}}, _callee, this);}));function onLoad() {return _onLoad.apply(this, arguments);}return onLoad;}() };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
