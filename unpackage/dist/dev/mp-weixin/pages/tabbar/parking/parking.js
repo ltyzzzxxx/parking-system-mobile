@@ -169,7 +169,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
 //
 //
 //
@@ -204,6 +208,7 @@ var _default =
 {
   data: function data() {
     return {
+      nearestList: [],
       latitude: 30.513985,
       longitude: 114.343979,
       covers: [{
@@ -245,7 +250,107 @@ var _default =
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    getAllCarPark: function getAllCarPark() {var _this = this;
+      this.$api.getCarParkList().then(function (res) {
+        console.log(res);
+        _this.covers = [];
+        var that = _this;
+        res.carParkList.forEach(function (c) {
+          var cover = {
+            latitude: '',
+            longitude: '',
+            iconPath: '../../../static/p-coordinate.png',
+            width: 30,
+            height: 30 };
+
+          cover.latitude = c.latitude;
+          cover.longitude = c.longitude;
+          that.covers.push(cover);
+        });
+      });
+    },
+    getAuthorizeInfo: function getAuthorizeInfo() {var _this2 = this;
+      uni.authorize({
+        scope: 'scope.userLocation',
+        success: function success() {
+          _this2.getLocationInfo();
+        },
+        fail: function fail() {
+          _this2.openConfirm();
+          console.log("你拒绝了授权，显示默认武汉理工大学鉴湖校区");
+        } });
+
+    },
+    // 获取地理位置
+    getLocationInfo: function getLocationInfo() {var _this3 = this;
+      uni.getLocation({
+        type: 'wgs84',
+        success: function success(res) {
+          console.log("您当前的位置信息", res);
+          _this3.latitude = res.latitude;
+          _this3.longitude = res.longitude;
+          var latitude = _this3.latitude;
+          var longitude = _this3.longitude;
+          _this3.getNearestCarParks(latitude + '', longitude + '');
+        } });
+
+    },
+    // 再次获取授权
+    // 当用户第一次拒绝后再次请求授权
+    openConfirm: function openConfirm() {
+      uni.showModal({
+        title: '请求授权当前位置',
+        content: '需要获取您的地理位置，请确认授权',
+        success: function success(res) {
+          if (res.confirm) {
+            uni.openSetting(); // 打开地图权限设置
+          } else if (res.cancel) {
+            uni.showToast({
+              title: '您拒绝了授权，无法获得周边信息',
+              icon: 'none',
+              duration: 1000 });
+
+          }
+        } });
+
+    },
+    getNearestCarParks: function getNearestCarParks(latitude, longitude) {var _this4 = this;
+      this.$api.getNearestCarParks({
+        latitude: latitude,
+        longitude: longitude }).
+      then(function (res) {
+        _this4.nearestList = res.nearestList;
+      });
+    },
+    regionChange: function regionChange(e) {var _this5 = this;
+      if (e.type == 'end') {
+        console.log("拖拽结束");
+        var mapCtx = uni.createMapContext("map", this);
+        mapCtx.getCenterLocation({
+          success: function success(res) {
+            _this5.getNearestCarParks(res.latitude + '', res.longitude + '');
+          } });
+
+      }
+    },
+    openMap: function openMap(latitude, longitude) {
+      uni.openLocation({
+        latitude: latitude,
+        longitude: longitude,
+        scale: 12 });
+
+      var map = uni.createMapContext('map');
+      map.moveToLocation();
+    } },
+
+  created: function created() {
+    this.getAllCarPark();
+  },
+  onShow: function onShow() {
+    this.getAuthorizeInfo();
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 22 */

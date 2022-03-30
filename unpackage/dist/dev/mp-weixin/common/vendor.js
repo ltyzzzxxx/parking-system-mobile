@@ -8806,6 +8806,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   //删除车牌
   deletePlate: function deletePlate(data) {
     return _request.default.post("/mobile/user/deletePlate", data);
+  },
+  //获取全部车场列表
+  getCarParkList: function getCarParkList() {
+    return _request.default.get("/mobile/carPark/getList");
+  },
+  //获取最近的6个车场信息列表
+  getNearestCarParks: function getNearestCarParks() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return _request.default.get("/mobile/carPark/getNearest", params);
   }
   // wxLogin(data){
   // 	return api.post("/test/login",data)

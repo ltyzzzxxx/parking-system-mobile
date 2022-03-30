@@ -20,6 +20,14 @@ export default {
 	deletePlate(data) {
 		return api.post("/mobile/user/deletePlate", data)
 	},
+	//获取全部车场列表
+	getCarParkList() {
+		return api.get("/mobile/carPark/getList")
+	},
+	//获取最近的6个车场信息列表
+	getNearestCarParks(params = {}) {
+		return api.get("/mobile/carPark/getNearest", params)
+	}
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)
 	// },
