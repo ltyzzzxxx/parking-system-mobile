@@ -30,4 +30,10 @@
 	width: 80%;
 	box-shadow: 10px 20px 20px -20px #eeeff5;
 }
+.no-carpark {
+	position: absolute;
+	top: 0%;
+	height: 88%;
+	width: 100%;
+}
 

@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -197,11 +197,34 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      carPark: {} };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    getCarParkById: function getCarParkById(id) {var _this = this;
+      this.$api.getCarParkById({
+        id: id }).
+      then(function (res) {
+        console.log(res);
+        _this.carPark = res.carPark;
+      });
+    },
+    openMap: function openMap(latitude, longitude) {
+      uni.openLocation({
+        latitude: latitude,
+        longitude: longitude,
+        scale: 12 });
+
+      var map = uni.createMapContext('map');
+      map.moveToLocation();
+    } },
+
+  onLoad: function onLoad(option) {
+    console.log(option.id);
+    this.getCarParkById(option.id + "");
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

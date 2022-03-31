@@ -1,0 +1,89 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.container.data-v-357bae68 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.loader.data-v-357bae68 {
+  -webkit-animation: rotate-data-v-357bae68 2s linear infinite normal;
+          animation: rotate-data-v-357bae68 2s linear infinite normal;
+  position: relative;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+.loader__ball.data-v-357bae68 {
+  height: 30rpx;
+  width: 30rpx;
+  left: -15rpx;
+  position: absolute;
+  top: -15rpx;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+.loader__ball.data-v-357bae68:nth-of-type(2) {
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+.loader__ball.data-v-357bae68:nth-of-type(3) {
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+.loader__ball.data-v-357bae68::after {
+  -webkit-animation: move-data-v-357bae68 1s ease-in-out infinite alternate;
+          animation: move-data-v-357bae68 1s ease-in-out infinite alternate;
+  background: linear-gradient(135deg, #1FA2FF, #12D8FA, #29ffc6);
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+@-webkit-keyframes rotate-data-v-357bae68 {
+from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+}
+to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+@keyframes rotate-data-v-357bae68 {
+from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+}
+to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+}
+}
+@-webkit-keyframes move-data-v-357bae68 {
+0%,
+  15% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+100% {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+}
+}
+@keyframes move-data-v-357bae68 {
+0%,
+  15% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+}
+100% {
+    -webkit-transform: translateY(-150%);
+            transform: translateY(-150%);
+}
+}
+

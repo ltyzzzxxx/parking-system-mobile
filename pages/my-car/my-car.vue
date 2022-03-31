@@ -6,17 +6,21 @@
 				<text style="color: rgb(92, 204, 132);">添加车辆</text>
 			</view>
 		</view>
-		<view v-if="plateList.length > 0" class="plates flex-column">
-			<view v-for="(item,index) in plateList" :key="index" class="plate flex justify-between align-center mt-5">
-				<text style="color: #000000; font-size: 19px; margin-left: 25px;">{{item.plate}}</text>
-				<uni-icons type="trash" size="20" style="color: #989899; margin-right: 25px;" @click="deletePlate(item.id)"></uni-icons>
+		<view v-if="loading">
+			<zero-loading mask="true"></zero-loading>
+		</view>
+		<view v-else>
+			<view v-if="plateList.length > 0" class="plates flex-column">
+				<view v-for="(item,index) in plateList" :key="index" class="plate flex justify-between align-center mt-5">
+					<text style="color: #000000; font-size: 19px; margin-left: 25px;">{{item.plate}}</text>
+					<uni-icons type="trash" size="20" style="color: #989899; margin-right: 25px;" @click="deletePlate(item.id)"></uni-icons>
+				</view>
+			</view>
+			<view v-else class="no-car flex align-center justify-center flex-column">
+				<image src="../../static/noPlate.png" style="width: 130px; height: 100px;"></image>
+				<text class="text-light-muted" style="font-size: 12px; margin: 20px 0 80px 0;">您还未绑定车牌哦！</text>
 			</view>
 		</view>
-		<view v-else class="no-car flex align-center justify-center flex-column">
-			<image src="../../static/noPlate.png" style="width: 130px; height: 100px;"></image>
-			<text class="text-light-muted" style="font-size: 12px; margin: 20px 0 80px 0;">您还未绑定车牌哦！</text>
-		</view>
-		
 	</view>
 </template>
 
@@ -32,7 +36,8 @@
 		},
 		data() {
 			return {
-				plateList: []
+				plateList: [],
+				loading: false
 			}
 		},
 		methods: {
@@ -40,6 +45,7 @@
 				this.$api.getPlates(id).then(res => {
 					console.log(res)
 					this.plateList = res.plates
+					this.loading = false
 				})
 			},
 			deletePlate(id) {
@@ -63,9 +69,11 @@
 			}
 		},
 		created() {
+			this.loading = true
 			this.getPlates({carParkUserId: this.user.id})
 		},
 		onShow() {
+			this.loading = true
 			this.getPlates({carParkUserId: this.user.id})
 		}
 		

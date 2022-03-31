@@ -27,7 +27,15 @@ export default {
 	//获取最近的6个车场信息列表
 	getNearestCarParks(params = {}) {
 		return api.get("/mobile/carPark/getNearest", params)
-	}
+	},
+	//根据关键词模糊搜索停车场
+	getCarParkListByKeyword(params = {}) {
+		return api.get("/mobile/carPark/getListByKeyword", params)
+	},
+	//根据id获取车场
+	getCarParkById(params = {}) {
+		return api.get("/mobile/carPark/getCarParkById", params)
+	},
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)
 	// },

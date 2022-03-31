@@ -3,11 +3,11 @@
 		<view class="detail-bg">
 			<view class="flex justify-between" style="margin: 20px 0 0 20px; ">
 				<view>
-					<view style="color: white; font-size: 18px; font-weight: 400;">103孵化器内部停车场</view>
+					<view style="color: white; font-size: 18px; font-weight: 400;">{{carPark.name}}</view>
 					<view class="flex-column" style="margin-top: 15px;">
 						<view class="flex">
 							<text style="color: #EEEFF5" class="iconfont icon-zuobiao"></text>
-							<text style="color: #EEEFF5; font-size: 12px; margin-left: 7px;">湖北省武汉市蔡甸区经济技术开发区</text>
+							<text style="color: #EEEFF5; font-size: 12px; margin-left: 7px;">{{carPark.address}}</text>
 						</view>
 						<view class="flex" style="margin-top: 14px;">
 							<text style="color: #EEEFF5" class="iconfont icon-type"></text>
@@ -15,11 +15,11 @@
 						</view>
 						<view class="flex" style="margin-top: 14px;">
 							<text style="color: #EEEFF5" class="iconfont icon-shouye"></text>
-							<text style="color: #EEEFF5; font-size: 12px; margin-left: 7px;">17712346666</text>
+							<text style="color: #EEEFF5; font-size: 12px; margin-left: 7px;">{{carPark.contactPhone}}</text>
 						</view>
 					</view>
 				</view>
-				<view style="margin: 50px 40px auto 0;border-radius: 100%; background-color: white; width: 40px; height: 40px;">
+				<view style="margin: 50px 40px auto 0;border-radius: 100%; background-color: white; width: 40px; height: 40px;" @click="openMap(carPark.latitude, carPark.longitude)">
 					<image src="../../static/nav.png" style="width: 25px; height: 25px; margin: 5px 0 0 5px;" mode="aspectFit"></image>
 				</view>
 			</view>
@@ -30,23 +30,23 @@
 					<view style="color: #323133; font-weight: bold;">车场信息</view>
 					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
 						<view>总车位数</view>
-						<view style="margin-right: 20px;">300</view>
+						<view style="margin-right: 20px;">{{carPark.carNum}}</view>
 					</view>
 					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
 						<view>可用车位数</view>
-						<view style="margin-right: 20px;">150</view>
+						<view style="margin-right: 20px;">{{carPark.leftCarNum}}</view>
 					</view>
 					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
 						<view>收费价格</view>
-						<view style="margin-right: 20px;">￥3/h</view>
-					</view>
-					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
-						<view>出口数</view>
-						<view style="margin-right: 20px;">1</view>
+						<view style="margin-right: 20px;">￥{{carPark.price}}/h</view>
 					</view>
 					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
 						<view>入口数</view>
-						<view style="margin-right: 20px;">2</view>
+						<view style="margin-right: 20px;">{{carPark.entranceNum}}</view>
+					</view>
+					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
+						<view>出口数</view>
+						<view style="margin-right: 20px;">{{carPark.exitNum}}</view>
 					</view>
 					
 				</view>
@@ -66,11 +66,31 @@
 	export default {
 		data() {
 			return {
-				
+				carPark: {}
 			}
 		},
 		methods: {
-			
+			getCarParkById(id) {
+				this.$api.getCarParkById({
+					id: id
+				}).then(res => {
+					console.log(res)
+					this.carPark = res.carPark
+				})
+			},
+			openMap(latitude, longitude) {
+				uni.openLocation({
+					latitude:latitude,
+					longitude:longitude,
+					scale:12,
+				})
+				var map = uni.createMapContext('map');
+				map.moveToLocation()
+			}
+		},
+		onLoad(option) {
+			console.log(option.id)
+			this.getCarParkById(option.id + "")
 		}
 	}
 </script>

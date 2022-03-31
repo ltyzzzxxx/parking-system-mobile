@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.container.data-v-06a68fc8 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.box.data-v-06a68fc8 {
+  width: 300rpx;
+  height: 300rpx;
+  position: relative;
+}
+.sun.data-v-06a68fc8 {
+  background: radial-gradient(#ff0, #f90);
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.planetX.data-v-06a68fc8 {
+  position: absolute;
+  z-index: 100;
+  border-radius: 50%;
+}
+.planet1.data-v-06a68fc8 {
+  left: 20rpx;
+  height: 13rpx;
+  width: 13rpx;
+  background-color: #fed313;
+}
+.planet2.data-v-06a68fc8 {
+  left: 23rpx;
+  height: 20rpx;
+  width: 20rpx;
+  background: linear-gradient(#00ff00, #09f, #09f);
+  -webkit-animation: rotation-data-v-06a68fc8 1s infinite linear;
+  animation: rotation-data-v-06a68fc8 1s infinite linear;
+}
+.planet3.data-v-06a68fc8 {
+  left: 49rpx;
+  height: 17rpx;
+  width: 17rpx;
+  background: radial-gradient(#ff9900, #ff4400);
+}
+.orbit.data-v-06a68fc8 {
+  background: transparent;
+  border-radius: 50%;
+  border: 1rpx solid #cccccc;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.orbit1.data-v-06a68fc8 {
+  height: 100rpx;
+  width: 100rpx;
+  -webkit-animation: rotation-data-v-06a68fc8 2s infinite linear;
+  animation: rotation-data-v-06a68fc8 2s infinite linear;
+}
+.orbit2.data-v-06a68fc8 {
+  height: 150rpx;
+  width: 150rpx;
+  -webkit-animation: rotation-data-v-06a68fc8 3s infinite linear;
+  animation: rotation-data-v-06a68fc8 3s infinite linear;
+}
+.orbit3.data-v-06a68fc8 {
+  height: 200rpx;
+  width: 200rpx;
+  -webkit-animation: rotation-data-v-06a68fc8 6s infinite linear;
+  animation: rotation-data-v-06a68fc8 6s infinite linear;
+}
+@-webkit-keyframes rotation-data-v-06a68fc8 {
+from {
+    -webkit-transform: rotate(0deg);
+}
+to {
+    -webkit-transform: rotate(359deg);
+}
+}
+@keyframes rotation-data-v-06a68fc8 {
+from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+}
+}
+

@@ -97,6 +97,9 @@ try {
   components = {
     uniIcons: function() {
       return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 253))
+    },
+    zeroLoading: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/zero-loading/components/zero-loading/zero-loading */ "uni_modules/zero-loading/components/zero-loading/zero-loading").then(__webpack_require__.bind(null, /*! @/uni_modules/zero-loading/components/zero-loading/zero-loading.vue */ 313))
     }
   }
 } catch (e) {
@@ -176,6 +179,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
@@ -187,7 +194,8 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
 
   data: function data() {
     return {
-      plateList: [] };
+      plateList: [],
+      loading: false };
 
   },
   methods: {
@@ -195,6 +203,7 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
       this.$api.getPlates(id).then(function (res) {
         console.log(res);
         _this.plateList = res.plates;
+        _this.loading = false;
       });
     },
     deletePlate: function deletePlate(id) {var _this2 = this;
@@ -218,9 +227,11 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
     } },
 
   created: function created() {
+    this.loading = true;
     this.getPlates({ carParkUserId: this.user.id });
   },
   onShow: function onShow() {
+    this.loading = true;
     this.getPlates({ carParkUserId: this.user.id });
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

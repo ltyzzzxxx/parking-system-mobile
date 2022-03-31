@@ -8814,6 +8814,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   //获取最近的6个车场信息列表
   getNearestCarParks: function getNearestCarParks() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     return _request.default.get("/mobile/carPark/getNearest", params);
+  },
+  //根据关键词模糊搜索停车场
+  getCarParkListByKeyword: function getCarParkListByKeyword() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return _request.default.get("/mobile/carPark/getListByKeyword", params);
+  },
+  //根据id获取车场
+  getCarParkById: function getCarParkById() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return _request.default.get("/mobile/carPark/getCarParkById", params);
   }
   // wxLogin(data){
   // 	return api.post("/test/login",data)

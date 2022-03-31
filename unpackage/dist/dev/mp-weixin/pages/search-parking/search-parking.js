@@ -97,9 +97,6 @@ try {
   components = {
     uniIcons: function() {
       return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 253))
-    },
-    uniBadge: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-badge/components/uni-badge/uni-badge */ "uni_modules/uni-badge/components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-badge/components/uni-badge/uni-badge.vue */ 287))
     }
   }
 } catch (e) {
@@ -156,7 +153,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
 //
 //
 //
@@ -179,11 +179,62 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      keyword: '',
+      list: [] };
 
   },
-  methods: {} };exports.default = _default;
+  onLoad: function onLoad() {
+    var list = uni.getStorageSync('historyKeyword');
+    if (list) {
+      this.list = JSON.parse(list);
+    }
+  },
+  methods: {
+    handleSearchEvent: function handleSearchEvent(value) {
+      this.keyword = value;
+      // 跳转到搜索结果页
+      uni.navigateTo({
+        url: "/pages/search-result/search-result?keyword=".concat(this.keyword) });
+
+      this.addHistory();
+    },
+    searchParking: function searchParking() {
+      uni.navigateTo({
+        url: "/pages/search-result/search-result?keyword=".concat(this.keyword) });
+
+      this.addHistory();
+    },
+    addHistory: function addHistory() {var _this = this;
+      if (this.keyword == '') {
+        return;
+      }
+      var index = this.list.findIndex(function (v) {return v == _this.keyword;});
+      if (index != -1) {
+        this.objToFirst(this.list, index);
+      } else {
+        this.list.unshift(this.keyword);
+      }
+      uni.setStorageSync('historyKeyword', JSON.stringify(this.list));
+    },
+    clear: function clear() {var _this2 = this;
+      uni.showModal({
+        content: '是否要清除搜索记录？',
+        success: function success(res) {
+          if (res.confirm) {
+            _this2.list = [];
+            uni.removeStorageSync('historyKeyword');
+          }
+        } });
+
+    },
+    objToFirst: function objToFirst(arr, index) {
+      if (index != 0) {
+        arr.unshift(arr.splice(index, 1)[0]);
+      }
+      return arr;
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

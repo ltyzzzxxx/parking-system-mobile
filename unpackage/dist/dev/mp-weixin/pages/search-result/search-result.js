@@ -97,6 +97,9 @@ try {
   components = {
     uniIcons: function() {
       return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 253))
+    },
+    zeroLoading: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/zero-loading/components/zero-loading/zero-loading */ "uni_modules/zero-loading/components/zero-loading/zero-loading").then(__webpack_require__.bind(null, /*! @/uni_modules/zero-loading/components/zero-loading/zero-loading.vue */ 313))
     }
   }
 } catch (e) {
@@ -120,6 +123,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 =
+    !_vm.loading && _vm.carParkList.length > 0
+      ? _vm.__map(_vm.carParkList, function(item, index) {
+          var $orig = _vm.__get_orig(item)
+
+          var g0 = item.address.length > 12 ? item.address.slice(0, 12) : null
+          return {
+            $orig: $orig,
+            g0: g0
+          }
+        })
+      : null
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -177,19 +200,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      latitude: '',
+      longitude: '',
+      carParkList: [],
+      loading: false };
 
   },
   methods: {
     back: function back() {
+      console.log("返回");
       uni.navigateBack({
         delta: 1 });
 
-    } } };exports.default = _default;
+    },
+    getListByKeyword: function getListByKeyword(latitude, longitude, keyword) {var _this = this;
+      this.$api.getCarParkListByKeyword({
+        latitude: latitude,
+        longitude: longitude,
+        keyword: keyword }).
+      then(function (res) {
+        console.log(res);
+        _this.carParkList = res.list;
+      });
+    },
+    openMap: function openMap(latitude, longitude) {
+      uni.openLocation({
+        latitude: latitude,
+        longitude: longitude,
+        scale: 12 });
+
+      var map = uni.createMapContext('map');
+      map.moveToLocation();
+    } },
+
+  onLoad: function onLoad(option) {var _this2 = this;
+    this.loading = true;
+    uni.getLocation({
+      type: 'wgs84',
+      success: function success(res) {
+        console.log("您当前的位置信息", res);
+        _this2.latitude = res.latitude;
+        _this2.longitude = res.longitude;
+        var latitude = _this2.latitude;
+        var longitude = _this2.longitude;
+        _this2.getListByKeyword(latitude + '', longitude + '', option.keyword);
+        _this2.loading = false;
+      } });
+
+  } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
