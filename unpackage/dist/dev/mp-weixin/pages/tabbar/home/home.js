@@ -96,13 +96,13 @@ var components
 try {
   components = {
     iconsCard: function() {
-      return __webpack_require__.e(/*! import() | components/icons-card/icons-card */ "components/icons-card/icons-card").then(__webpack_require__.bind(null, /*! @/components/icons-card/icons-card.vue */ 275))
+      return __webpack_require__.e(/*! import() | components/icons-card/icons-card */ "components/icons-card/icons-card").then(__webpack_require__.bind(null, /*! @/components/icons-card/icons-card.vue */ 466))
     },
     uniList: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 261))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 452))
     },
     uniListItem: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 268))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 459))
     }
   }
 } catch (e) {
@@ -247,6 +247,18 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
     this.navigateTo("/pages/setting/setting");
   },
   methods: {
+    toParkingRecodList: function toParkingRecodList() {
+      this.authJump('../../parking-record-list/parking-record-list');
+    },
+    toAppointmentRecordList: function toAppointmentRecordList() {
+      this.authJump('../../appointment-record-list/appointment-record-list');
+    },
+    toOrderList: function toOrderList() {
+      this.authJump('../../order-list/order-list');
+    },
+    searchCarForPay: function searchCarForPay() {
+      this.authJump('../../search-car/search-car');
+    },
     openLogin: function openLogin() {
       this.navigateTo('../../login/login');
     },

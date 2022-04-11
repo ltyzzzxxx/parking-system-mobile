@@ -24,19 +24,19 @@
 			<icons-card :icons='icons'></icons-card>
 			<view class="px-3">
 				<uni-list :border="false">
-					<uni-list-item clickable title="自助缴费" showArrow>
+					<uni-list-item clickable title="自助缴费" @click="searchCarForPay" showArrow>
 						<text slot="header" class="iconfont icon-zizhujiaofei mr-2"
 							style="font-size: 20px; color: #4396ec;"></text>
 					</uni-list-item>
-					<uni-list-item clickable title="停车记录" showArrow>
+					<uni-list-item clickable title="停车记录" @click="toParkingRecodList" showArrow>
 						<text slot="header" class="iconfont icon-jilu mr-2"
 							style="font-size: 20px; color: #4396ec;"></text>
 					</uni-list-item>
-					<uni-list-item clickable title="预约记录" showArrow>
+					<uni-list-item clickable title="预约记录" @click="toAppointmentRecordList" showArrow>
 						<text slot="header" class="iconfont icon-yuyue mr-2"
 							style="font-size: 20px; color: #4396ec;"></text>
 					</uni-list-item>
-					<uni-list-item clickable title="账单记录" showArrow>
+					<uni-list-item clickable title="账单记录" @click="toOrderList" showArrow>
 						<text slot="header" class="iconfont icon-zhangdan mr-2"
 							style="font-size: 20px; color: #4396ec;"></text>
 					</uni-list-item>
@@ -86,6 +86,18 @@
 			this.navigateTo("/pages/setting/setting")
 		},
 		methods: {
+			toParkingRecodList() {
+				this.authJump('../../parking-record-list/parking-record-list')
+			},
+			toAppointmentRecordList() {
+				this.authJump('../../appointment-record-list/appointment-record-list')
+			},
+			toOrderList() {
+				this.authJump('../../order-list/order-list')
+			},
+			searchCarForPay() {
+				this.authJump('../../search-car/search-car')
+			},
 			openLogin() {
 				this.navigateTo('../../login/login')
 			},

@@ -1,0 +1,11 @@
+
+.time{
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+.red{
+	color: white;
+	margin: 0 4rpx;
+}
+

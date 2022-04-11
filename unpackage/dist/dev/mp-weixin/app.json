@@ -9,7 +9,14 @@
     "pages/login/login",
     "pages/parking-detail/parking-detail",
     "pages/bind-phone/bind-phone",
-    "pages/user-info/user-info"
+    "pages/user-info/user-info",
+    "pages/search-car/search-car",
+    "pages/pay-detail/pay-detail",
+    "pages/order-detail/order-detail",
+    "pages/order-list/order-list",
+    "pages/test/test",
+    "pages/parking-record-list/parking-record-list",
+    "pages/appointment-record-list/appointment-record-list"
   ],
   "subPackages": [],
   "window": {

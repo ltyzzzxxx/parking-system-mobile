@@ -1,4 +1,5 @@
 {
+  "component": true,
   "usingComponents": {
     "loading0": "/uni_modules/zero-loading/components/zero-loading/static/loading-circle",
     "loading1": "/uni_modules/zero-loading/components/zero-loading/static/loading-pulse",
@@ -7,6 +8,5 @@
     "loading4": "/uni_modules/zero-loading/components/zero-loading/static/loading-triangle",
     "loading5": "/uni_modules/zero-loading/components/zero-loading/static/loading-sun",
     "loading6": "/uni_modules/zero-loading/components/zero-loading/static/loading-love"
-  },
-  "component": true
+  }
 }

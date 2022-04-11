@@ -1,0 +1,46 @@
+
+.detail-bg {
+	background-image: linear-gradient(#5CCC84 0%, #3CB371 100%);
+	/* background-color: #5ccc84; */
+	height: 220rpx;
+	width: 750rpx;
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+.detail-container {
+	width: 100%;
+	position: absolute;
+	top: 220rpx;
+	bottom: 0;
+	left: 0;
+	background-color: #f8f8fa;
+}
+.detail-order {
+	background-color: #fefefe;
+	margin: -70px auto 0 auto;
+	width: 90%;
+	height: 130px;
+	border-radius: 10px;
+	box-shadow: 10px 20px 20px -20px #eeeff5;
+}
+.detail-order2 {
+	background-color: #fefefe;
+	margin: 15px auto 0 auto;
+	width: 90%;
+	height: auto;
+	border-radius: 10px;
+	padding-bottom: 15px;
+	box-shadow: 10px 20px 20px -20px #eeeff5;
+}
+.my-divider {
+	border: 0;
+	height: 1px;
+	background: #F1F1F1;
+	margin: 15px 5px 0 5px;
+}
+.price-detail {
+	height: 70rpx;
+	width: 100%;
+}
+

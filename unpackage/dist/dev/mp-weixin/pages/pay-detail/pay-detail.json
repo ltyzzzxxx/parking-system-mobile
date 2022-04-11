@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#5CCC84",
+  "navigationBarTitleText": "确认支付",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "wyb-popup": "/components/wyb-popup/wyb-popup"
+  }
+}

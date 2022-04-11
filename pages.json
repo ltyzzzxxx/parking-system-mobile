@@ -114,6 +114,71 @@
             }
             
         }
+        ,{
+            "path" : "pages/search-car/search-car",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "查找车辆",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/pay-detail/pay-detail",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor": "#5CCC84",
+                "navigationBarTitleText": "确认支付",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order-detail/order-detail",
+            "style" :                                                                                    
+            {
+				"navigationBarBackgroundColor": "#5CCC84",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order-list/order-list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/parking-record-list/parking-record-list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/appointment-record-list/appointment-record-list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -207,12 +207,12 @@ var _default = { data: function data() {return {};}, methods: { wxLogin: functio
           url: "/pages/bind-phone/bind-phone" });
 
         return;
-      } else {
-        uni.redirectTo({
-          url: "/pages/tabbar/home/home" });
-
-        return;
       }
+      console.log("登录成功");
+      uni.switchTab({
+        url: "../tabbar/home/home" });
+
+      return;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

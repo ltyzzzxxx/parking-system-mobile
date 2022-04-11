@@ -25,7 +25,7 @@
 				if(!item.path) {
 					return
 				}
-				this.navigateTo(item.path)
+				this.authJump(item.path)
 			}
 		}
 	}

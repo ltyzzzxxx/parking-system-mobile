@@ -13,20 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/search-parking/parking/parking",
-          "pathName": "pages/search-parking/search-parking",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "搜索结果",
-          "pathName": "pages/search-result/search-result",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "车场详情",
-          "pathName": "pages/parking-detail/parking-detail",
+          "name": "预约记录",
+          "pathName": "pages/appointment-record-list/appointment-record-list",
           "query": "",
           "scene": null
         }

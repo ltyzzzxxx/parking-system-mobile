@@ -36,6 +36,30 @@ export default {
 	getCarParkById(params = {}) {
 		return api.get("/mobile/carPark/getCarParkById", params)
 	},
+	//根据车牌查找停车记录
+	searchPlateForPay(params = {}) {
+		return api.get("/mobile/user/searchPlate", params)
+	},
+	//根据车牌获取缴费详情信息
+	getPayDetail(params = {}) {
+		return api.get("/mobile/user/getPayDetail", params)
+	},
+	//创建订单
+	createOrder(data) {
+		return api.post("/mobile/user/createOrder", data)
+	},
+	//支付订单
+	payOrder(data) {
+		return api.post("/mobile/user/payOrder", data)
+	},
+	//根据商户订单号获取订单详情
+	getOrderDetail(params = {}) {
+		return api.get("/mobile/user/getOrderDetail", params)
+	},
+	//根据用户id获取订单列表
+	getOrderList(params = {}) {
+		return api.get("/mobile/user/getOrderList", params)
+	}
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)
 	// },

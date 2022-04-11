@@ -21,15 +21,23 @@ Vue.prototype.navigateTo = function(url) {
 
 Vue.prototype.authJump = function(url) {
 	if(!store.state.token) {
+		uni.showToast({
+			title:'请先登录再进行操作',
+			icon:'none'
+		})
 		return uni.navigateTo({
 			url: '/pages/login/login'
 		})
 	}
-	// if(!store.state.user.phone) {
-	// 	return uni.navigateTo({
-	// 		url: '/pages/bind-phone/bind-phone'
-	// 	})
-	// }
+	if(!store.state.user.phone) {
+		uni.showToast({
+			title:'请先绑定手机再进行操作',
+			icon:'none'
+		})
+		return uni.navigateTo({
+			url: '/pages/bind-phone/bind-phone'
+		})
+	}
 	uni.navigateTo({
 		url,
 	})

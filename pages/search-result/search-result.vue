@@ -11,7 +11,7 @@
 		</view>
 		<view v-else>
 			<view v-if="carParkList.length > 0">
-				<view class="search-list">
+				<view class="search-list" style="margin-bottom: 30px;">
 					<view class="parking-item flex justify-between"  v-for="(item, index) in carParkList">
 						<view class="flex flex-column" style="margin-left: 15px;" @click="navigateTo('/pages/parking-detail/parking-detail?id=' + item.id)">
 							<view style="color: #1a191a; font-weight: bold; margin-top: 15px; font-size: 16px;">{{item.name}}</view>
@@ -110,10 +110,8 @@
 }
 .search-list {
 	width: 100%;
-	position: absolute;
-	top: 80px;
-	bottom: 0;
-	left: 0;
+	display: flex;
+	flex-direction: column;
 	background-color: #f8f8fa;
 }
 .parking-item {

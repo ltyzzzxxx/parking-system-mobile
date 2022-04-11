@@ -46,12 +46,12 @@
 						url: "/pages/bind-phone/bind-phone"
 					})
 					return
-				} else {
-					uni.redirectTo({
-						url: "/pages/tabbar/home/home"
-					})
-					return
 				}
+				console.log("登录成功")
+				uni.switchTab({
+					url:"../tabbar/home/home"
+				})
+				return
 			}
 		}
 	}
