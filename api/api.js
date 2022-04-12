@@ -59,6 +59,14 @@ export default {
 	//根据用户id获取订单列表
 	getOrderList(params = {}) {
 		return api.get("/mobile/user/getOrderList", params)
+	},
+	//预约
+	makeAppointment(data) {
+		return api.post("/mobile/user/makeAppointment", data)
+	},
+	//获取预约记录列表
+	getAppointmentList(params = {}) {
+		return api.get("/mobile/user/getAppointmentList", params)
 	}
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)

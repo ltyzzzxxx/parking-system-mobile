@@ -97,6 +97,9 @@ try {
   components = {
     tab: function() {
       return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 504))
+    },
+    uniIcons: function() {
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 444))
     }
   }
 } catch (e) {
@@ -120,12 +123,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var g0 = _vm.address.length > 17 ? _vm.address.slice(0, 17) : null
+  var l0 = _vm.__map(_vm.appointmentList, function(item, index) {
+    var $orig = _vm.__get_orig(item)
+
+    var g0 =
+      item.carParkAddress.length > 17 ? item.carParkAddress.slice(0, 17) : null
+    return {
+      $orig: $orig,
+      g0: g0
+    }
+  })
+
   _vm.$mp.data = Object.assign(
     {},
     {
       $root: {
-        g0: g0
+        l0: l0
       }
     }
   )
@@ -162,44 +175,55 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
 {
   data: function data() {
     return {
       address: '武汉市东西湖区金银潭大道1号永旺梦乐城F1',
+      appointmentList: [],
       current: 0,
       tabs: [{
         name: '全部',
@@ -225,7 +249,27 @@ var _default =
 
 
   },
-  methods: {} };exports.default = _default;
+  computed: _objectSpread({},
+  (0, _vuex.mapState)({
+    user: function user(state) {return state.user;} })),
+
+
+  methods: {
+    getAppointmentList: function getAppointmentList() {var _this = this;
+      this.$api.getAppointmentList({
+        userId: this.user.id }).
+      then(function (res) {
+        console.log(res);
+        _this.appointmentList = res.appointmentList;
+      });
+    } },
+
+  created: function created() {
+    this.getAppointmentList();
+  },
+  onLoad: function onLoad() {
+    this.getAppointmentList();
+  } };exports.default = _default;
 
 /***/ }),
 

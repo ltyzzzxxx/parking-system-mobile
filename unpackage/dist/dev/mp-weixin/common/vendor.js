@@ -8846,6 +8846,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   //根据用户id获取订单列表
   getOrderList: function getOrderList() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     return _request.default.get("/mobile/user/getOrderList", params);
+  },
+  //预约
+  makeAppointment: function makeAppointment(data) {
+    return _request.default.post("/mobile/user/makeAppointment", data);
+  },
+  //获取预约记录列表
+  getAppointmentList: function getAppointmentList() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return _request.default.get("/mobile/user/getAppointmentList", params);
   }
   // wxLogin(data){
   // 	return api.post("/test/login",data)

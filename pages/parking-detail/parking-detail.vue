@@ -50,7 +50,7 @@
 					</view>
 					
 				</view>
-				<view class="bg-main main-btn" style="width: 80%; margin: 20px auto 0 auto;" hover-class="bg-main-hover" type="default" @tap="toBind">
+				<view class="bg-main main-btn" style="width: 80%; margin: 20px auto 0 auto;" hover-class="bg-main-hover" type="default" @click="makeAppointment">
 					预&nbsp;&nbsp;&nbsp;约
 				</view>
 				<view class="flex justify-center align-center" style="margin: 20px auto 0 auto;">
@@ -63,11 +63,19 @@
 </template>
 
 <script>
+	import {
+		mapState
+	} from 'vuex'
 	export default {
 		data() {
 			return {
 				carPark: {}
 			}
+		},
+		computed:{
+			...mapState({
+				user: state => state.user
+			})
 		},
 		methods: {
 			getCarParkById(id) {
@@ -86,6 +94,23 @@
 				})
 				var map = uni.createMapContext('map');
 				map.moveToLocation()
+			},
+			makeAppointment() {
+				if(!this.user) {
+					uni.navigateTo({
+						url: '../login/login',
+					});
+				}
+				this.$api.makeAppointment({
+					userId: this.user.id,
+					carParkId: this.carPark.id
+				}).then(res => {
+					console.log(res)
+					uni.showToast({
+						title: '您已成功预约！',
+						icon:'none'
+					});
+				})
 			}
 		},
 		onLoad(option) {
