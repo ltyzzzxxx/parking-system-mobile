@@ -4,6 +4,6 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons",
-    "xw-count-down": "/components/xw-CountDown/index"
+    "wyb-popup": "/components/wyb-popup/wyb-popup"
   }
 }

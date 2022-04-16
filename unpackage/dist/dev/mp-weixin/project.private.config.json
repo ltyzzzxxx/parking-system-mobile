@@ -29,6 +29,12 @@
           "pathName": "pages/choose-coupon/choose-coupon",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "支付页面",
+          "pathName": "pages/pay-detail/pay-detail",
+          "query": "plate=鄂AJY878",
+          "scene": null
         }
       ]
     }

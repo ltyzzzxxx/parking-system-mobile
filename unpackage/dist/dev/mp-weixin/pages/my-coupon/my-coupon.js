@@ -196,13 +196,13 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
   data: function data() {
     return {
       couponList: [],
+      list: [],
       current: 0,
       tabs: [{
         name: '全部',
         list: [],
         page: 1,
         type: 'all' },
-
       {
         name: '待使用',
         list: [],
@@ -227,12 +227,21 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
 
 
   methods: {
+    clickTab: function clickTab(index) {
+      this.current = index;
+      if (index == 0) {
+        this.list = this.couponList;
+      } else {
+        this.list = this.couponList.filter(function (c) {return c.status == index - 1;});
+      }
+    },
     getCouponList: function getCouponList() {var _this = this;
       this.$api.getCouponList({
         userId: this.user.id }).
       then(function (res) {
         console.log(res);
         _this.couponList = res.couponList;
+        _this.list = _this.couponList;
       });
     },
     created: function created() {

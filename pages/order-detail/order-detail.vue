@@ -96,11 +96,11 @@
 					<view class="price-detail flex align-center justify-end" style="margin-top: 10px;">
 						<view style="margin-right: 8px;">
 							<text style="font-size: 15px; font-weight: 340;">原价</text>
-							<text style="color: #000000; font-size: 18px;">￥{{(orderDetail.totalFee) / 100 % 1 == 0 ? orderDetail.totalFee / 100 + '.0' : orderDetail.totalFee / 100}}</text>
+							<text style="color: #000000; font-size: 18px;">￥{{(orderDetail.originalFee) / 100 % 1 == 0 ? orderDetail.originalFee / 100 + '.0' : orderDetail.originalFee / 100}}</text>
 						</view>
 						<view style="margin-right: 20px;">
 							<text style="font-size: 15px; font-weight: 340;">已优惠</text>
-							<text style="color: #E24f39; font-size: 18px;">￥0.0</text>
+							<text style="color: #E24f39; font-size: 18px;">￥{{(orderDetail.discountAmount) / 100 % 1 == 0 ? orderDetail.discountAmount / 100 + '.0' : orderDetail.discountAmount / 100}}</text>
 						</view>
 					</view>
 					<view class="price-detail flex align-center justify-end">
@@ -112,13 +112,30 @@
 				</view>
 			</view>
 		</view>
+		<wyb-popup ref="popup" type="bottom" height="400" width="500" radius="6" :showCloseIcon="true">
+		    <view>
+		        <view class="flex align-center justify-center" style="margin-top: 15rpx;">
+					收费标准说明
+				</view>
+				<view style="font-size: 13px; padding: 20px 15px 15px 15px;">
+					停车场以半小时为时间单位进行收费，不足半小时按照半小时进行收费，否则按照一小时进行收费。
+				</view>
+				<view style="font-size: 13px; padding: 0px 15px 15px 15px;">
+					如：某车场每小时收费3元，停15分钟收费1.5元，停45分钟收费3元，依此类推。
+				</view>
+		    </view>
+		</wyb-popup>
 	</view>
 </template>
 
 <script>
 	import moment from 'moment'
 	import xwCountDown from '@/components/xw-CountDown'
+	import wybPopup from '@/components/wyb-popup/wyb-popup.vue'
 	export default {
+		components: {
+		    wybPopup
+		},
 		data() {
 			return {
 				orderDetail: {},
@@ -136,6 +153,9 @@
 			},
 		},
 		methods: {
+			showHelp() {
+				this.$refs.popup.show()
+			},
 			getOrderDetail(orderNo) {
 				this.$api.getOrderDetail({
 					orderNo: orderNo

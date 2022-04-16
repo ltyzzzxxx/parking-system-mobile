@@ -1,10 +1,10 @@
 <template>
 	<view class="flex-column">
 		<view class="tabs">
-			<tab :tabs="tabs" :current="current"></tab>
+			<tab :tabs="tabs" :current="current" @change="clickTab"></tab>
 		</view>
 		<view class="search-list" style="margin-bottom: 30px;">
-			<view class="coupon-item flex-column"  v-for="(item, index) in couponList" :key="index">
+			<view class="coupon-item flex-column"  v-for="(item, index) in list" :key="index">
 				<view class="flex align-center justify-between">
 					<view class="flex-column" style="margin-left: 15px;">
 						<view class="flex align-center justify-center">
@@ -41,13 +41,13 @@
 		data() {
 			return {
 				couponList: [],
+				list: [],
 				current: 0,
 				tabs: [{
 					name: '全部',
 					list: [],
 					page: 1,
 					type: 'all'
-					
 				},{
 					name: '待使用',
 					list: [],
@@ -72,12 +72,21 @@
 			}),
 		},
 		methods: {
+			clickTab(index) {
+				this.current = index
+				if(index == 0) {
+					this.list = this.couponList
+				} else {
+					this.list = this.couponList.filter(c => c.status == index - 1)
+				}
+			},
 			getCouponList() {
 				this.$api.getCouponList({
 					userId: this.user.id
 				}).then(res => {
 					console.log(res)
 					this.couponList = res.couponList
+					this.list = this.couponList
 				})
 			},
 			created() {

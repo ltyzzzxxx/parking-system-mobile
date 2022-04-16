@@ -265,6 +265,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
 var _moment = _interopRequireDefault(__webpack_require__(/*! moment */ 267));
 
 var _vuex = __webpack_require__(/*! vuex */ 15);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wybPopup = function wybPopup() {__webpack_require__.e(/*! require.ensure | components/wyb-popup/wyb-popup */ "components/wyb-popup/wyb-popup").then((function () {return resolve(__webpack_require__(/*! @/components/wyb-popup/wyb-popup.vue */ 490));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
@@ -292,9 +298,10 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function _interopRequireDefault(
     showHelp: function showHelp() {
       this.$refs.popup.show();
     },
-    getPayDetail: function getPayDetail(plate) {var _this = this;
+    getPayDetail: function getPayDetail(plate) {var _this = this;var discountAmount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.0;
       this.$api.getPayDetail({
-        plate: plate }).
+        plate: plate,
+        discountAmount: discountAmount }).
       then(function (res) {
         console.log(res);
         _this.payDetail = res.payDetail;
@@ -310,7 +317,9 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function _interopRequireDefault(
         totalFee: this.payDetail.totalFee * 100,
         carParkId: this.payDetail.carParkId,
         plate: this.payDetail.plate,
-        recordId: this.payDetail.recordId }).
+        recordId: this.payDetail.recordId,
+        originalFee: this.payDetail.originalFee * 100,
+        discountAmount: this.payDetail.discountAmount * 100 }).
       then(function (res) {
         uni.hideLoading();
         var orderNo = res.order.orderNo;
@@ -326,6 +335,9 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function _interopRequireDefault(
                   title: '支付成功',
                   icon: 'none' });
 
+                uni.navigateBack({
+                  delta: 1 });
+
               });
             } else {
               console.log("取消支付");
@@ -334,11 +346,23 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function _interopRequireDefault(
           } });
 
       });
+    },
+    chooseCoupon: function chooseCoupon() {
+      uni.navigateTo({
+        url: '../choose-coupon/choose-coupon?originalFee=' + this.payDetail.originalFee + '&plate=' + this.payDetail.plate });
+
     } },
 
   onLoad: function onLoad(option) {
-    console.log(option.plate);
-    this.getPayDetail(option.plate);
+    if (option) {
+      this.getPayDetail(option.plate);
+    } else {
+      var pages = getCurrentPages();
+      var curPage = pages[pages.length - 1];
+      console.log("车牌：" + curPage.data.plate);
+      console.log("优惠金额：" + curPage.data.discountAmount);
+      this.getPayDetail(curPage.data.plate, curPage.data.discountAmount);
+    }
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

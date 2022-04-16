@@ -17,6 +17,9 @@
 						{{item.carParkName}}
 					</view>
 					<view style="color: #ee7d7a; font-size: 13px; margin-top: 8px;">停车{{item.duration}}</view>
+					<view style="color: #989799; font-size: 12px; margin-top: 8px;">
+						{{item.payTime}}
+					</view>
 				</view>
 				<view class="flex flex-column justify-end" style="margin-right: 15px;">
 					<view style="color: #989998; font-size: 13px; margin-left: auto;">{{item.orderStatus === 0 ? '已支付' : item.orderStatus === 1 ? '待支付' : '已取消'}}</view>

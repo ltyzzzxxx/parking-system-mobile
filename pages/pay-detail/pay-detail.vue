@@ -54,9 +54,15 @@
 					<view class="flex justify-between" style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
 						<view>红包/优惠券</view>
 						<view style="margin-right: 20px;">
-							<view class="coupon flex justify-between align-center">
+							<view v-if="payDetail.discountAmount == 0" class="coupon flex justify-between align-center" @click="chooseCoupon">
 								<text style="color: #7f5222; padding: 4rpx 5rpx 6rpx 15rpx; font-size: 22rpx;">
 									未选红包，点击选择
+								</text>
+								<uni-icons type="forward" size="13"></uni-icons>
+							</view>
+							<view v-else class="flex justify-between align-center" @click="chooseCoupon">
+								<text style="color: #E24f39; padding: 4rpx 5rpx 6rpx 15rpx; font-size: 25rpx;">
+									-￥{{payDetail.discountAmount}}
 								</text>
 								<uni-icons type="forward" size="13"></uni-icons>
 							</view>
@@ -66,11 +72,11 @@
 					<view class="price-detail flex align-center justify-end" style="margin-top: 10px;">
 						<view style="margin-right: 8px;">
 							<text style="font-size: 15px; font-weight: 340;">原价</text>
-							<text style="color: #000000; font-size: 18px;">￥{{payDetail.totalFee % 1 == 0 ? payDetail.totalFee + '.0' : payDetail.totalFee}}</text>
+							<text style="color: #000000; font-size: 18px;">￥{{payDetail.originalFee % 1 == 0 ? payDetail.originalFee + '.0' : payDetail.originalFee}}</text>
 						</view>
 						<view style="margin-right: 20px;">
 							<text style="font-size: 15px; font-weight: 340;">已优惠</text>
-							<text style="color: #E24f39; font-size: 18px;">￥0.0</text>
+							<text style="color: #E24f39; font-size: 18px;">￥{{payDetail.discountAmount % 1 == 0 ? payDetail.discountAmount + '.0' : payDetail.discountAmount}}</text>
 						</view>
 					</view>
 					<view class="price-detail flex align-center justify-end">
@@ -134,9 +140,10 @@
 			showHelp() {
 				this.$refs.popup.show()
 			},
-			getPayDetail(plate) {
+			getPayDetail(plate, discountAmount = 0.0) {
 				this.$api.getPayDetail({
-					plate: plate
+					plate: plate,
+					discountAmount: discountAmount
 				}).then(res => {
 					console.log(res)
 					this.payDetail = res.payDetail
@@ -152,7 +159,9 @@
 					totalFee: this.payDetail.totalFee * 100,
 					carParkId: this.payDetail.carParkId,
 					plate: this.payDetail.plate,
-					recordId: this.payDetail.recordId
+					recordId: this.payDetail.recordId,
+					originalFee: this.payDetail.originalFee * 100,
+					discountAmount: this.payDetail.discountAmount * 100,
 				}).then(res => {
 					uni.hideLoading()
 					let orderNo = res.order.orderNo
@@ -168,6 +177,9 @@
 										title: '支付成功',
 										icon: 'none'
 									});
+									uni.navigateBack({
+										delta:1
+									})
 								})
 							} else {
 								console.log("取消支付")
@@ -176,12 +188,24 @@
 						},
 					});
 				})
+			},
+			chooseCoupon() {
+				uni.navigateTo({
+					url:'../choose-coupon/choose-coupon?originalFee=' + this.payDetail.originalFee + '&plate=' + this.payDetail.plate
+				})
 			}
 		},
 		onLoad(option) {
-			console.log(option.plate)
-			this.getPayDetail(option.plate)
-		}
+			if(option) {
+				this.getPayDetail(option.plate)
+			} else {
+				let pages = getCurrentPages()
+				let curPage = pages[pages.length - 1]
+				console.log("车牌：" + curPage.data.plate)
+				console.log("优惠金额：" + curPage.data.discountAmount)
+				this.getPayDetail(curPage.data.plate, curPage.data.discountAmount)
+			}
+		},
 	}
 </script>
 

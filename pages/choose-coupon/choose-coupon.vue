@@ -31,7 +31,7 @@
 						</view>
 					</view>
 					<view class="flex align-center justify-center">
-						<view class="detail-button flex align-center justify-center" style="margin-top: 10px;">
+						<view class="detail-button flex align-center justify-center" style="margin-top: 10px;" @click="backPay(item.discountAmount)">
 							<text style="color: #84cb86; font-size: 13px; padding: 5rpx 30rpx 5rpx 30rpx;">
 								选择
 							</text>
@@ -99,6 +99,8 @@
 			return {
 				usableCouponList: [],
 				unusableCouponList: [],
+				originalFee: 0,
+				plate: '',
 			}
 		},
 		computed:{
@@ -113,7 +115,7 @@
 				}).then(res => {
 					console.log(res)
 					res.couponList.forEach(c => {
-						if(c.status == 0) {
+						if(c.status == 0 && this.originalFee > c.thresholdAmount) {
 							this.usableCouponList.push(c)
 						} else {
 							this.unusableCouponList.push(c)
@@ -121,12 +123,27 @@
 					})
 				})
 			},
-			created() {
-				this.getCouponList()
-			},
-			onLoad() {
-				this.getCouponList()
+			backPay(discountAmount) {
+				console.log(discountAmount)
+				let pages = getCurrentPages();
+				let prevPage = pages[pages.length - 2];
+				prevPage.setData({
+					plate: this.plate,
+					discountAmount: discountAmount
+				})
+				uni.navigateBack({
+					delta: 1,
+					success: function() {
+						prevPage.onLoad()
+					}
+				});
 			}
+		},
+		onLoad(option) {
+			this.getCouponList()
+			console.log(option)
+			this.originalFee = option.originalFee
+			this.plate = option.plate
 		}
 	}
 </script>

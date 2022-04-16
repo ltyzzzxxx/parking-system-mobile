@@ -9,7 +9,7 @@
 					<view class="flex-colum" style="margin-left: 15px;">
 						<view>永旺梦乐城金银潭店-A1</view>
 						<view>
-							<text style="color: #9a9a9b; font-size: 14px;">武汉市东西湖区金银潭大道1号永旺梦乐城F1</text>
+							<text style="color: #9a9a9b; font-size: 14px;">武汉市东西湖区金银潭大道1号</text>
 						</view>
 						<view>
 							<text style="color: #DE5C5A; font-size: 14px;">￥3/h</text>

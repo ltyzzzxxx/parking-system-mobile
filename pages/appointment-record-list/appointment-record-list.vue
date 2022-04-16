@@ -1,14 +1,14 @@
 <template>
 	<view class="flex-column">
 		<view class="tabs">
-			<tab :tabs="tabs" :current="current"></tab>
+			<tab :tabs="tabs" :current="current" @change="clickTab"></tab>
 		</view>
 		<view class="search-list" style="margin-bottom: 30px;">
 			<view class="tip flex align-center justify-center">
 				<uni-icons type="sound" size="20" color="#9C9C9C"></uni-icons>
 				<text style="color: #9C9C9C; font-size: 13px;">请在预约后15分钟内达到车场，否则预约自动取消</text>
 			</view>
-			<view class="record-item flex-column"  v-for="(item, index) in appointmentList" :key="index">
+			<view class="record-item flex-column"  v-for="(item, index) in list" :key="index">
 				<view class="flex align-center justify-between">
 					<view class="flex-colum" style="margin-left: 15px;">
 						<view>{{item.carParkName}}</view>
@@ -46,13 +46,13 @@
 		data() {
 			return {
 				appointmentList: [],
+				list: [],
 				current: 0,
 				tabs: [{
 					name: '全部',
 					list: [],
 					page: 1,
 					type: 'all'
-					
 				},{
 					name: '未进入',
 					list: [],
@@ -83,8 +83,17 @@
 				}).then(res => {
 					console.log(res)
 					this.appointmentList = res.appointmentList
+					this.list = this.appointmentList
 				})
-			}
+			},
+			clickTab(index) {
+				this.current = index
+				if(index == 0) {
+					this.list = this.appointmentList
+				} else {
+					this.list = this.appointmentList.filter(c => c.status == index - 1)
+				}
+			},
 		},
 		created() {
 			this.getAppointmentList()
@@ -96,6 +105,9 @@
 </script>
 
 <style>
+page {
+	background-color: #f8f8fa;
+}
 .tabs {
 	width: 100%;
 	height: 45px;

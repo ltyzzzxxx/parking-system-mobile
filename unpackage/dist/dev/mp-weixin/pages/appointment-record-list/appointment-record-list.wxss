@@ -1,4 +1,7 @@
 
+page {
+	background-color: #f8f8fa;
+}
 .tabs {
 	width: 100%;
 	height: 45px;

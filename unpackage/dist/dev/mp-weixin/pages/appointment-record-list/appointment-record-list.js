@@ -123,7 +123,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  var l0 = _vm.__map(_vm.appointmentList, function(item, index) {
+  var l0 = _vm.__map(_vm.list, function(item, index) {
     var $orig = _vm.__get_orig(item)
 
     var g0 =
@@ -223,13 +223,13 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
   data: function data() {
     return {
       appointmentList: [],
+      list: [],
       current: 0,
       tabs: [{
         name: '全部',
         list: [],
         page: 1,
         type: 'all' },
-
       {
         name: '未进入',
         list: [],
@@ -260,7 +260,16 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
       then(function (res) {
         console.log(res);
         _this.appointmentList = res.appointmentList;
+        _this.list = _this.appointmentList;
       });
+    },
+    clickTab: function clickTab(index) {
+      this.current = index;
+      if (index == 0) {
+        this.list = this.appointmentList;
+      } else {
+        this.list = this.appointmentList.filter(function (c) {return c.status == index - 1;});
+      }
     } },
 
   created: function created() {

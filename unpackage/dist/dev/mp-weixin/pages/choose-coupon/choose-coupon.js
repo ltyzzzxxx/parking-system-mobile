@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -230,7 +230,9 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
   data: function data() {
     return {
       usableCouponList: [],
-      unusableCouponList: [] };
+      unusableCouponList: [],
+      originalFee: 0,
+      plate: '' };
 
   },
   computed: _objectSpread({},
@@ -245,7 +247,7 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
       then(function (res) {
         console.log(res);
         res.couponList.forEach(function (c) {
-          if (c.status == 0) {
+          if (c.status == 0 && _this.originalFee > c.thresholdAmount) {
             _this.usableCouponList.push(c);
           } else {
             _this.unusableCouponList.push(c);
@@ -253,12 +255,29 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
         });
       });
     },
-    created: function created() {
-      this.getCouponList();
-    },
-    onLoad: function onLoad() {
-      this.getCouponList();
-    } } };exports.default = _default;
+    backPay: function backPay(discountAmount) {
+      console.log(discountAmount);
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2];
+      prevPage.setData({
+        plate: this.plate,
+        discountAmount: discountAmount });
+
+      uni.navigateBack({
+        delta: 1,
+        success: function success() {
+          prevPage.onLoad();
+        } });
+
+    } },
+
+  onLoad: function onLoad(option) {
+    this.getCouponList();
+    console.log(option);
+    this.originalFee = option.originalFee;
+    this.plate = option.plate;
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
