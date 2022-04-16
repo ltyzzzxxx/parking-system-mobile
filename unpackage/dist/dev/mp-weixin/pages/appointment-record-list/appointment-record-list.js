@@ -222,7 +222,6 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
 {
   data: function data() {
     return {
-      address: '武汉市东西湖区金银潭大道1号永旺梦乐城F1',
       appointmentList: [],
       current: 0,
       tabs: [{

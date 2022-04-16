@@ -179,6 +179,24 @@
             }
             
         }
+        ,{
+            "path" : "pages/my-coupon/my-coupon",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的优惠券",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/choose-coupon/choose-coupon",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择优惠券",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

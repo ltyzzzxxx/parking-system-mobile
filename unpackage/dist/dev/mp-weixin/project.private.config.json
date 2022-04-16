@@ -17,6 +17,18 @@
           "pathName": "pages/appointment-record-list/appointment-record-list",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "我的优惠券",
+          "pathName": "pages/my-coupon/my-coupon",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择优惠券",
+          "pathName": "pages/choose-coupon/choose-coupon",
+          "query": "",
+          "scene": null
         }
       ]
     }

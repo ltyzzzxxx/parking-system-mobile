@@ -1,5 +1,5 @@
 <template>
-	<view class="flex-colum">
+	<view class="flex-column">
 		<view class="tabs">
 			<tab :tabs="tabs" :current="current"></tab>
 		</view>
@@ -22,7 +22,7 @@
 							<text style="color: #007AFF; font-size: 13px;">于 {{item.createTime}} 预约</text>
 						</view>
 					</view>
-					<view class="record-status flex align-center justify-center" style="margin-top: 20px">
+					<view class="record-status flex align-center justify-center" style="margin-top: 20px" :class="item.status == 0 ? 'status-blue' : item.status == 1 ? 'status-green' : 'status-red'">
 						<text style="color: #F0F0F0; font-size: 13px; padding: 8rpx 15rpx 8rpx 15rpx;">{{item.status == 0 ? '未进入' : item.status == 1 ? '已进入' : '已超时'}}</text>
 					</view>
 				</view>
@@ -45,7 +45,6 @@
 	export default {
 		data() {
 			return {
-				address: '武汉市东西湖区金银潭大道1号永旺梦乐城F1',
 				appointmentList: [],
 				current: 0,
 				tabs: [{
@@ -143,5 +142,14 @@
 	border-width: 1px;
 	border-color: #84cb86;
 	border-radius: 30px;
+}
+.status-blue {
+	background-color: #007AFF;
+}
+.status-red {
+	background-color: #DE5C5A;
+}
+.status-green {
+	background-color: #84CB86;
 }
 </style>

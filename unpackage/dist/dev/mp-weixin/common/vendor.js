@@ -8854,6 +8854,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   //获取预约记录列表
   getAppointmentList: function getAppointmentList() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     return _request.default.get("/mobile/user/getAppointmentList", params);
+  },
+  //获取优惠券列表
+  getCouponList: function getCouponList() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return _request.default.get("/mobile/user/getCouponList", params);
   }
   // wxLogin(data){
   // 	return api.post("/test/login",data)

@@ -16,7 +16,9 @@
     "pages/order-list/order-list",
     "pages/test/test",
     "pages/parking-record-list/parking-record-list",
-    "pages/appointment-record-list/appointment-record-list"
+    "pages/appointment-record-list/appointment-record-list",
+    "pages/my-coupon/my-coupon",
+    "pages/choose-coupon/choose-coupon"
   ],
   "subPackages": [],
   "window": {

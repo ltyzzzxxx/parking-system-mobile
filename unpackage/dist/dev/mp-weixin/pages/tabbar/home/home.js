@@ -236,7 +236,8 @@ var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumera
         path: '/pages/my-car/my-car' },
       {
         icon: 'icon-youhuiquan',
-        name: '我的优惠券' },
+        name: '我的优惠券',
+        path: '/pages/my-coupon/my-coupon' },
       {
         icon: 'icon-xiaoxi',
         name: '我的消息' }] };

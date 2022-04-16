@@ -67,6 +67,10 @@ export default {
 	//获取预约记录列表
 	getAppointmentList(params = {}) {
 		return api.get("/mobile/user/getAppointmentList", params)
+	},
+	//获取优惠券列表
+	getCouponList(params = {}) {
+		return api.get("/mobile/user/getCouponList", params)
 	}
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)
