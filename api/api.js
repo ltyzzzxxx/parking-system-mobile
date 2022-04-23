@@ -52,6 +52,10 @@ export default {
 	payOrder(data) {
 		return api.post("/mobile/user/payOrder", data)
 	},
+	//支付订单
+	cancelOrder(data) {
+		return api.post("/mobile/user/cancelOrder", data)
+	},
 	//根据商户订单号获取订单详情
 	getOrderDetail(params = {}) {
 		return api.get("/mobile/user/getOrderDetail", params)

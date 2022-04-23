@@ -94,13 +94,13 @@ var components
 try {
   components = {
     uniList: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 452))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list/uni-list */ "uni_modules/uni-list/components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list/uni-list.vue */ 475))
     },
     uniListItem: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 459))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-list/components/uni-list-item/uni-list-item */ "uni_modules/uni-list/components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-list/components/uni-list-item/uni-list-item.vue */ 482))
     },
     mainButton: function() {
-      return __webpack_require__.e(/*! import() | components/main-button/main-button */ "components/main-button/main-button").then(__webpack_require__.bind(null, /*! @/components/main-button/main-button.vue */ 485))
+      return __webpack_require__.e(/*! import() | components/main-button/main-button */ "components/main-button/main-button").then(__webpack_require__.bind(null, /*! @/components/main-button/main-button.vue */ 508))
     }
   }
 } catch (e) {

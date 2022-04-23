@@ -1,4 +1,7 @@
 
+page {
+	background-color: #f8f8fa;
+}
 .search {
 	width: 100%;
 	height: 80px;

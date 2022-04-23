@@ -8839,6 +8839,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   payOrder: function payOrder(data) {
     return _request.default.post("/mobile/user/payOrder", data);
   },
+  //支付订单
+  cancelOrder: function cancelOrder(data) {
+    return _request.default.post("/mobile/user/cancelOrder", data);
+  },
   //根据商户订单号获取订单详情
   getOrderDetail: function getOrderDetail() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     return _request.default.get("/mobile/user/getOrderDetail", params);
@@ -55896,7 +55900,30 @@ webpackContext.id = 268;
 /* 446 */,
 /* 447 */,
 /* 448 */,
-/* 449 */
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */,
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */,
+/* 471 */,
+/* 472 */
 /*!***********************************************************************************************************************!*\
   !*** /Users/lty/Documents/HBuilderProjects/hongxun-paring-uniapp/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***********************************************************************************************************************/

@@ -45,17 +45,17 @@
 				<view class="flex" v-if="orderDetail.orderStatus === 0 || orderDetail.orderStatus === 2">
 					<view class="flex-1 flex flex-column align-center justify-center py-3" hover-class="bg-light">
 						<uni-icons type="phone" size="23"></uni-icons>	
-						<text class="font-sm mt-1 text-secondary">联系客服</text>
+						<text class="font-sm mt-1 text-secondary" @click="makePhoneCall">联系客服</text>
 					</view>
 				</view>
 				<view v-else class="flex">
 					<view class="flex-1 flex flex-column align-center justify-center py-3" hover-class="bg-light">
 						<uni-icons type="wallet" size="23"></uni-icons>	
-						<text class="font-sm mt-1 text-secondary">继续支付</text>
+						<text class="font-sm mt-1 text-secondary" @click="continuePay">继续支付</text>
 					</view>
 					<view class="flex-1 flex flex-column align-center justify-center py-3" hover-class="bg-light">
 						<uni-icons type="closeempty" size="23"></uni-icons>	
-						<text class="font-sm mt-1 text-secondary">取消订单</text>
+						<text class="font-sm mt-1 text-secondary" @click="cancelPay">取消订单</text>
 					</view>
 				</view>
 			</view>
@@ -153,6 +153,57 @@
 			},
 		},
 		methods: {
+			continuePay() {
+				uni.showModal({
+					content: '是否确认支付？',
+					showCancel: true,
+					success: res => {
+						if(res.confirm) {
+							this.$api.payOrder({
+								orderNo: this.orderNo
+							}).then(res => {
+								uni.showToast({
+									title: '支付成功',
+									icon: 'none'
+								});
+								this.getOrderDetail(this.orderNo)
+							})
+						} else {
+							console.log("取消支付")
+						}
+					},
+				});
+			},
+			cancelPay() {
+				uni.showModal({
+					content: '是否取消订单？',
+					showCancel: true,
+					success: res => {
+						if(res.confirm) {
+							this.$api.cancelOrder({
+								orderNo: this.orderNo
+							}).then(res => {
+								uni.showToast({
+									title: '取消订单成功',
+									icon: 'none'
+								});
+								this.getOrderDetail(this.orderNo)
+							})
+						}
+					},
+				});
+			},
+			makePhoneCall() {
+				uni.makePhoneCall({
+					phoneNumber: '19903581356',
+					success: (res) => {
+						console.log("调用成功")
+					},
+					fail: (err) => {
+						console.log("调用失败")
+					}
+				})
+			},
 			showHelp() {
 				this.$refs.popup.show()
 			},

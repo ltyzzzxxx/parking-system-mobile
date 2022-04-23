@@ -3,7 +3,7 @@
 		<view class="search">
 			<view class="search-order flex align-center">
 				<uni-icons type="search" size="20" style="color: #1A1a19; margin-left: 14px;"></uni-icons>
-				<input v-model="keyword" style="color: #8b8c8b; margin-left: 8px; font-size: 14px;" type="search"
+				<input v-model="plate" style="color: #8b8c8b; margin-left: 8px; font-size: 14px;" type="search"
 					@confirm="searchOrder" placeholder="根据车牌号搜索订单" />
 			</view>
 		</view>
@@ -38,6 +38,7 @@
 		data() {
 			return {
 				orderList: [],
+				plate: '',
 			}
 		},
 		computed:{
@@ -54,15 +55,29 @@
 					this.orderList = res.orderList
 				})
 			},
-			
+			searchOrder() {
+				this.$api.getOrderList({
+					userId: this.user.id,
+					plate: this.plate
+				}).then(res => {
+					console.log(res)
+					this.orderList = res.orderList
+				})
+			}
 		},
 		created() {
+			this.getOrderList()
+		},
+		onShow() {
 			this.getOrderList()
 		}
 	}
 </script>
 
 <style>
+page {
+	background-color: #f8f8fa;
+}
 .search {
 	width: 100%;
 	height: 80px;
