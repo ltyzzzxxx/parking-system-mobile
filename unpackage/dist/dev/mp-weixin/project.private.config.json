@@ -35,6 +35,24 @@
           "pathName": "pages/pay-detail/pay-detail",
           "query": "plate=鄂AJY878",
           "scene": null
+        },
+        {
+          "name": "周边",
+          "pathName": "pages/tabbar/zhoubian/zhoubian",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商城",
+          "pathName": "pages/shopping-mall/shopping-mall",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/product-detail/product-detail",
+          "query": "",
+          "scene": null
         }
       ]
     }

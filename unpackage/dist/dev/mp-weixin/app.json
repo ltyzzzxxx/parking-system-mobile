@@ -18,7 +18,10 @@
     "pages/parking-record-list/parking-record-list",
     "pages/appointment-record-list/appointment-record-list",
     "pages/my-coupon/my-coupon",
-    "pages/choose-coupon/choose-coupon"
+    "pages/choose-coupon/choose-coupon",
+    "pages/tabbar/zhoubian/zhoubian",
+    "pages/shopping-mall/shopping-mall",
+    "pages/product-detail/product-detail"
   ],
   "subPackages": [],
   "window": {
@@ -37,6 +40,12 @@
         "pagePath": "pages/tabbar/parking/parking",
         "selectedIconPath": "static/tabbar/parking_selected.png",
         "text": "停车"
+      },
+      {
+        "iconPath": "static/tabbar/zhoubian.png",
+        "pagePath": "pages/tabbar/zhoubian/zhoubian",
+        "selectedIconPath": "static/tabbar/zhoubian_selected.png",
+        "text": "周边"
       },
       {
         "iconPath": "static/tabbar/home.png",

@@ -75,6 +75,30 @@ export default {
 	//获取优惠券列表
 	getCouponList(params = {}) {
 		return api.get("/mobile/user/getCouponList", params)
+	},
+	//添加用户偏好
+	setUserPreference(data) {
+		return api.post("/mobile/user/setUserPreference", data)
+	},
+	//根据用户偏好推荐商品
+	getGuessPreferenceProduct(params = {}) {
+		return api.get("/mobile/product/guessPreference", params)
+	},
+	//获取热门商品推荐
+	getHotProducts(params = {}) {
+		return api.get("/mobile/product/hot", params)
+	},
+	//获取评分最多商品推荐
+	getRateProducts(params = {}) {
+		return api.get("/mobile/product/rate", params)
+	},
+	//根据id获取商品
+	getProductById(params = {}) {
+		return api.get("/mobile/product/getProductById", params)
+	},
+	//获取相似商品推荐
+	getSimilarProducts(params = {}) {
+		return api.get("/mobile/product/getSimilarProducts", params)
 	}
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)

@@ -197,6 +197,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/tabbar/zhoubian/zhoubian",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "周边",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/shopping-mall/shopping-mall",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "车品商城",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/product-detail/product-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -216,6 +243,11 @@
 			"pagePath": "pages/tabbar/parking/parking",
 			"selectedIconPath": "static/tabbar/parking_selected.png",
 			"text": "停车"
+		}, {
+			"iconPath": "static/tabbar/zhoubian.png",
+			"pagePath": "pages/tabbar/zhoubian/zhoubian",
+			"selectedIconPath": "static/tabbar/zhoubian_selected.png",
+			"text": "周边"
 		}, {
 			"iconPath": "static/tabbar/home.png",
 			"pagePath": "pages/tabbar/home/home",
