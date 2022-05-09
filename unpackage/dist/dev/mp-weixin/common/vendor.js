@@ -8886,6 +8886,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   //获取相似商品推荐
   getSimilarProducts: function getSimilarProducts() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     return _request.default.get("/mobile/product/getSimilarProducts", params);
+  },
+  //获取停车记录列表
+  getParkingRecordList: function getParkingRecordList() {var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return _request.default.get("/mobile/user/getParkingRecordList", params);
   }
   // wxLogin(data){
   // 	return api.post("/test/login",data)
@@ -55946,25 +55950,7 @@ webpackContext.id = 268;
 /* 468 */,
 /* 469 */,
 /* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */
+/* 471 */
 /*!***********************************************************************************************************************!*\
   !*** /Users/lty/Documents/HBuilderProjects/hongxun-paring-uniapp/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \***********************************************************************************************************************/
@@ -57140,6 +57126,24 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     "unicode_decimal": 58929 }] };exports.default = _default;
 
 /***/ }),
+/* 472 */,
+/* 473 */,
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */,
 /* 490 */,
 /* 491 */,
 /* 492 */,
@@ -57297,40 +57301,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 644 */,
 /* 645 */,
 /* 646 */,
-/* 647 */,
-/* 648 */,
-/* 649 */,
-/* 650 */,
-/* 651 */,
-/* 652 */,
-/* 653 */,
-/* 654 */,
-/* 655 */,
-/* 656 */,
-/* 657 */,
-/* 658 */,
-/* 659 */,
-/* 660 */,
-/* 661 */,
-/* 662 */,
-/* 663 */,
-/* 664 */,
-/* 665 */,
-/* 666 */,
-/* 667 */,
-/* 668 */,
-/* 669 */,
-/* 670 */,
-/* 671 */,
-/* 672 */,
-/* 673 */,
-/* 674 */,
-/* 675 */,
-/* 676 */,
-/* 677 */,
-/* 678 */,
-/* 679 */,
-/* 680 */
+/* 647 */
 /*!*******************************************************************************************************************************************!*\
   !*** /Users/lty/Documents/HBuilderProjects/hongxun-paring-uniapp/uni_modules/uni-transition/components/uni-transition/createAnimation.js ***!
   \*******************************************************************************************************************************************/

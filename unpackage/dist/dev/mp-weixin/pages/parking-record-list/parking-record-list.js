@@ -96,7 +96,10 @@ var components
 try {
   components = {
     tab: function() {
-      return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 544))
+      return __webpack_require__.e(/*! import() | components/tab/tab */ "components/tab/tab").then(__webpack_require__.bind(null, /*! @/components/tab/tab.vue */ 526))
+    },
+    uniIcons: function() {
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 466))
     }
   }
 } catch (e) {
@@ -153,40 +156,55 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 15);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
 {
   data: function data() {
     return {
@@ -206,11 +224,40 @@ var _default =
         name: '已停',
         list: [],
         page: 1,
-        type: 'hasEnter' }] };
+        type: 'hasEnter' }],
 
+      list: [],
+      parkingRecordList: [] };
 
   },
-  methods: {} };exports.default = _default;
+  computed: _objectSpread({},
+  (0, _vuex.mapState)({
+    user: function user(state) {return state.user;} })),
+
+
+  methods: {
+    getParkingRecordList: function getParkingRecordList() {var _this = this;
+      this.$api.getParkingRecordList({
+        userId: this.user.id }).
+      then(function (res) {
+        _this.parkingRecordList = res.parkingRecordList;
+        _this.list = _this.parkingRecordList;
+        console.log(res);
+      });
+    },
+    clickTab: function clickTab(index) {
+      console.log(index);
+      this.current = index;
+      if (index == 0) {
+        this.list = this.parkingRecordList;
+      } else {
+        this.list = this.parkingRecordList.filter(function (c) {return c.status == index;});
+      }
+    } },
+
+  created: function created() {
+    this.getParkingRecordList();
+  } };exports.default = _default;
 
 /***/ }),
 

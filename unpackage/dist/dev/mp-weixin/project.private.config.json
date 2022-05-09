@@ -53,6 +53,12 @@
           "pathName": "pages/product-detail/product-detail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "停车记录",
+          "pathName": "pages/parking-record-list/parking-record-list",
+          "query": "",
+          "scene": null
         }
       ]
     }

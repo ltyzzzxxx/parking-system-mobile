@@ -28,7 +28,7 @@
 						<text slot="header" class="iconfont icon-zizhujiaofei mr-2"
 							style="font-size: 20px; color: #4396ec;"></text>
 					</uni-list-item>
-					<uni-list-item clickable title="停车记录" showArrow>
+					<uni-list-item clickable title="停车记录" @click="toParkingRecodList" showArrow>
 						<text slot="header" class="iconfont icon-jilu mr-2"
 							style="font-size: 20px; color: #4396ec;"></text>
 					</uni-list-item>

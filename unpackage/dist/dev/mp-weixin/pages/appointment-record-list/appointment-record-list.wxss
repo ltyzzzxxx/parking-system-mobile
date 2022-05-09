@@ -58,4 +58,10 @@ page {
 .status-green {
 	background-color: #84CB86;
 }
+.no-car {
+	position: absolute;
+	top: 8%;
+	height: 88%;
+	width: 100%;
+}
 
