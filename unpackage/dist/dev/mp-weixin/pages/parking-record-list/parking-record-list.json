@@ -2,7 +2,6 @@
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "tab": "/components/tab/tab",
-    "uni-icons": "/uni_modules/uni-icons/components/uni-icons/uni-icons"
+    "tab": "/components/tab/tab"
   }
 }

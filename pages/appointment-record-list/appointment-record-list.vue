@@ -35,10 +35,6 @@
 				</view>
 			</view>
 		</view>
-		<view v-if="list.length == 0" class="no-car flex align-center justify-center flex-column">
-			<image src="../../static/noPlate.png" style="width: 130px; height: 100px;"></image>
-			<text class="text-light-muted" style="font-size: 12px; margin: 20px 0 80px 0;">哎呀，暂未存在相关记录！</text>
-		</view>
 	</view>
 </template>
 
@@ -167,11 +163,5 @@ page {
 }
 .status-green {
 	background-color: #84CB86;
-}
-.no-car {
-	position: absolute;
-	top: 8%;
-	height: 88%;
-	width: 100%;
 }
 </style>

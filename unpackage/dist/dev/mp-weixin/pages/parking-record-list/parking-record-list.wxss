@@ -37,10 +37,4 @@
 	border-color: #84cb86;
 	border-radius: 30px;
 }
-.no-car {
-	position: absolute;
-	top: 8%;
-	height: 88%;
-	width: 100%;
-}
 

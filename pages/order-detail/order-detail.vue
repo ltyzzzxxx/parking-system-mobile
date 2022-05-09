@@ -75,7 +75,7 @@
 					<view class="flex justify-between"
 						style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">
 						<view>车场</view>
-						<view style="margin-right: 20px;" @click="navigateTo('/pages/parking-detail/parking-detail?id=' + orderDetail.carParkId)">{{orderDetail.carParkName}}<uni-icons type="forward" size="15"></uni-icons></view>
+						<view style="margin-right: 20px;">{{orderDetail.carParkName}}</view>
 					</view>
 					<view class="flex justify-between"
 						style="margin-top: 20px; color: #323133; font-weight: 350; font-size: 14px;">

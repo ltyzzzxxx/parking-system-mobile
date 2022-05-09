@@ -99,10 +99,6 @@ export default {
 	//获取相似商品推荐
 	getSimilarProducts(params = {}) {
 		return api.get("/mobile/product/getSimilarProducts", params)
-	},
-	//获取停车记录列表
-	getParkingRecordList(params = {}) {
-		return api.get("/mobile/user/getParkingRecordList", params)
 	}
 	// wxLogin(data){
 	// 	return api.post("/test/login",data)
