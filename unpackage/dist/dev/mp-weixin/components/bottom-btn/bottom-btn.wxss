@@ -1,0 +1,15 @@
+
+.d-flex{ display: flex;flex-direction: row!important;
+}
+.a-stretch{ align-items: stretch;
+}
+.bg-white{ background-color: var(--white)!important;
+}
+.line-h-md{ line-height: 1.5!important;
+}
+.bg-light-secondary{background-color: #F1F1F1!important;}
+.main-bg-color{ background-color: #FD6801;
+}
+.main-bg-hover-color{ background-color: rgba(253,104,1,0.85);
+}
+

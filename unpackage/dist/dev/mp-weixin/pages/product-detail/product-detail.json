@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "price": "/components/price/price",
+    "card": "/components/card/card",
+    "common-list": "/components/common-list/common-list",
+    "bottom-btn": "/components/bottom-btn/bottom-btn"
+  }
+}

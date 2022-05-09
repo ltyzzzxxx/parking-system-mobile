@@ -1,0 +1,30 @@
+
+.popup-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	height: 350px;
+	width: 250px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+.selected {
+	color: #5CCC84;
+}
+.button {
+	width: 80px;
+	height: 50rpx;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 30px;
+	border-color: #84cb86;
+}
+.grid-item-box {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+

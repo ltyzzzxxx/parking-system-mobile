@@ -1,0 +1,1 @@
+<view class="p-2"><scroll-view class="scroll-row" scroll-x="true"><block wx:for="{{3}}" wx:for-item="i" wx:for-index="__i0__" wx:key="*this"><view class="coupon"><view><text>￥100</text><text class="font">满￥200可用</text></view><view hover-class="bg-hover-warning">领取</view></view></block></scroll-view></view>

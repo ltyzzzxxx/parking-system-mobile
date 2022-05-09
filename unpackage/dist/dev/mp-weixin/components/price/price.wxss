@@ -1,0 +1,7 @@
+
+.main-text-color{color: #FD6801;}
+.font-md{ font-size: 35rpx!important;
+}
+.font-sm{ font-size: 25rpx;
+}
+

@@ -1,1 +1,0 @@
-<view class="time" style="{{(justifyLeft)}}"><block wx:if="{{tipText}}"><text class="red">{{tipText}}</text></block><text class="styleAll">{{minute}}</text><block wx:if="{{minuteText}}"><text class="timeTxt red">{{minuteText}}</text></block><text class="styleAll">{{second}}</text><block wx:if="{{secondText}}"><text class="timeTxt red">{{secondText}}</text></block></view>

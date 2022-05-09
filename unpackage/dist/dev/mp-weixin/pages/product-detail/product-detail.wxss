@@ -1,0 +1,10 @@
+
+.font-lg{ font-size: 40rpx;
+}
+.font{ font-size: 25rpx;
+}
+.line-h-sm{ line-height: 1.2!important;
+}
+.text-light-muted{ color: var(--lightmuted)!important;
+}
+

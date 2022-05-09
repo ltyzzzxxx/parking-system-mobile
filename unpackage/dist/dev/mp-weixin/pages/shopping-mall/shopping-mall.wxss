@@ -1,0 +1,19 @@
+
+.search-product {
+	position: absolute;
+	top: 2%;
+	right: 4%;
+	left: 4%;
+	border-radius: 50px;
+	width: 92%;
+	height: 35px;
+	background-color: #f8f8f7;
+}
+.grid-item-box {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+

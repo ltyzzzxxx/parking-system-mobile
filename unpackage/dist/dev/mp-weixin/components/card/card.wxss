@@ -1,0 +1,13 @@
+
+.p-2 {padding-left: 20rpx;padding-right: 20rpx;padding-top: 20rpx;padding-bottom: 20rpx;}
+.main-border-color{ border-color: #F1F1F1;
+}
+.d-flex{ display: flex;flex-direction: row!important;
+}
+.j-sb{ justify-content: space-between;
+}
+.font-md{ font-size: 30rpx;
+}
+.font-weight{ font-weight: bold!important;
+}
+
